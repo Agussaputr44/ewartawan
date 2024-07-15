@@ -24,7 +24,7 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AuthController::class, 'admin'])->name('admin');
 });
 
+//wartawan role
 Route::middleware(['role:wartawan'])->group(function () {
     Route::resource('berita', BeritaController::class);
-
 });
