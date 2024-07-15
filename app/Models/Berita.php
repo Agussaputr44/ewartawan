@@ -25,7 +25,7 @@ class Berita extends Model
         return $this->belongsTo(KategoriBerita::class, 'kategori_id');
     }
 
-    public function penulis()
+    public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }

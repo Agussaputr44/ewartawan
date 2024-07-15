@@ -11,7 +11,7 @@ $router->aliasMiddleware('role', CheckRole::class);
 // landing
 Route::get('/', function () {
     return view('landing');
-});
+})->name('landing');
 
 Route::get('/auth/signin', [AuthController::class, 'getSignin'])->name('get-signin');
 Route::get('/auth/signup', [AuthController::class, 'getSignup'])->name('get-signup');
@@ -25,6 +25,6 @@ Route::middleware(['role:admin'])->group(function () {
 });
 
 Route::middleware(['role:wartawan'])->group(function () {
-Route::get('/berita/create', [BeritaController::class, 'create'])->name('berita.create');
-Route::post('/berita', [BeritaController::class, 'store'])->name('berita.store');
+    Route::resource('berita', BeritaController::class);
+
 });
