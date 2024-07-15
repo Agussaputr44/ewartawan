@@ -13,17 +13,17 @@
                 @foreach($beritas as $berita)
                     <a class="group relative block rounded-xl" href="{{ route('berita.show', $berita->id) }}">
                         <div class="flex-shrink-0 relative rounded-xl overflow-hidden w-full h-[350px] before:absolute before:inset-x-0 before:z-[1] before:size-full before:bg-gradient-to-t before:from-gray-900/70">
-                            <img class="size-full absolute top-0 start-0 object-cover" src="{{ $berita->foto }}" alt="{{ $berita->judul }}">
+                            <img class="size-full absolute top-0 start-0 object-cover" src="{{ asset('storage/foto/' . $berita->foto) }}" alt="{{ $berita->judul }}">
                         </div>
                         <div class="absolute top-0 inset-x-0 z-10">
                             <div class="p-4 flex flex-col h-full sm:p-6">
                                 <!-- Avatar -->
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0">
-                                        <img class="size-[46px] border-2 border-white rounded-full" src="{{ $berita->foto }}" alt="{{ $berita->excerpt }}">
+                                        <img class="size-[46px] border-2 border-white rounded-full" src="{{ asset('storage/foto/' . $berita->foto)}}" alt="{{ $berita->konten }}">
                                     </div>
                                     <div class="ms-2.5 sm:ms-4">
-                                        <h4 class="font-semibold text-white">{{ $berita->excerpt }}</h4>
+                                        <h4 class="font-semibold text-white">{{ $berita->konten }}</h4>
                                         <p class="text-xs text-white/80">{{ $berita->created_at->format('M d, Y') }}</p>
                                     </div>
                                 </div>
@@ -32,8 +32,8 @@
                         </div>
                         <div class="absolute bottom-0 inset-x-0 z-10">
                             <div class="flex flex-col h-full p-4 sm:p-6">
-                                <h3 class="text-lg sm:text-3xl font-semibold text-white group-hover:text-white/80">{{ $berita->title }}</h3>
-                                <p class="mt-2 text-white/80">{{ $berita->excerpt }}</p>
+                                <h3 class="text-lg sm:text-3xl font-semibold text-white group-hover:text-white/80">{{ $berita->judul }}</h3>
+                                <p class="mt-2 text-white/80">{{ $berita->konten }}</p>
                             </div>
                         </div>
                     </a>
