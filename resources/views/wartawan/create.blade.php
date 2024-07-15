@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+        <a href="{{ route('berita.index') }}"
+            class="py-2 my-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-gray-300 bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700">
+            Kembali
+        </a>
         <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <!-- Card -->
@@ -65,7 +69,8 @@
                                 class="text-black py-2 px-3 pe-9 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                                 <option value="" selected class="text-black">Select a category</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}" class="text-black">{{ $category->nama_kategori}}</option>
+                                    <option value="{{ $category->id }}" class="text-black">{{ $category->nama_kategori }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -78,10 +83,12 @@
                             class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
                             Submit Berita
                         </button>
+
                     </div>
                 </div>
             </div>
             <!-- End Card -->
         </form>
+
     </div>
 @endsection

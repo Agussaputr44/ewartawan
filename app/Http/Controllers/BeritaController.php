@@ -90,4 +90,23 @@ class BeritaController extends Controller
 
         return redirect()->route('berita.index')->with('success', 'Berita berhasil dihapus.');
     }
+
+    public function myBerita()
+    {
+        $user = Auth::user();
+        $beritas = Berita::where('user_id', $user->id)->get();
+
+        return view('wartawan.index', compact('beritas'));
+    }
+    public function kelola()
+{
+    $user = Auth::user();
+    $beritas = Berita::where('user_id', $user->id)->get();
+    $kategori = Berita::with('kategori')->orderBy('created_at', 'desc')->paginate(10);
+
+
+    return view('wartawan.kelola', compact('beritas', 'kategori'));
+}
+
+
 }

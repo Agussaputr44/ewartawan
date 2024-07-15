@@ -27,4 +27,7 @@ Route::middleware(['role:admin'])->group(function () {
 //wartawan role
 Route::middleware(['role:wartawan'])->group(function () {
     Route::resource('berita', BeritaController::class);
+    Route::get('/wartawan/berita', [BeritaController::class, 'myBerita'])->name('wartawan.myberita');
+    Route::get('/wartawan/kelola', [BeritaController::class, 'kelola'])->name('wartawan.kelola');
+
 });

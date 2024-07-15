@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -54,7 +55,16 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             // Authentication successful
-            return redirect()->intended('/'); 
+            $user = Auth::user();
+            if ($user->role == 'admin') {
+                return redirect()->intended('/admin-dashboard');
+            } elseif ($user->role == 'wartawan') {
+                return redirect()->intended('/wartawan/berita');
+            } elseif ($user->role == 'redaktur') {
+                return redirect()->intended('/redaktur-index');
+            } else {
+                return redirect()->intended('/');
+            }
         }
 
         // Authentication failed

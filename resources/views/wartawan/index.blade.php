@@ -3,8 +3,8 @@
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
 
         <div class="max-w-2xl text-center mx-auto mb-10 lg:mb-14">
-            <h2 class="text-2xl font-bold md:text-4xl md:leading-tight">Read our latest news</h2>
-            <p class="mt-1 text-gray-600 dark:text-neutral-400">We've helped some great companies brand, design and get to market.</p>
+            <h2 class="text-2xl font-bold md:text-4xl md:leading-tight">Berita Yang Anda Tuliskan</h2>
+            <p class="mt-1 text-gray-600 dark:text-neutral-400">Tinjau kembali berita anda</p>
         </div>
         
         <div class="max-w-[85rem] px-4 py-8 sm:px-6 lg:px-8 lg:py-18 mx-auto">
@@ -20,10 +20,10 @@
                                 <!-- Avatar -->
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0">
-                                        <img class="size-[46px] border-2 border-white rounded-full" src="{{ asset('storage/foto/' . $berita->foto)}}" alt="{{ $berita->konten }}">
+                                        <img class="size-[46px] border-2 border-white rounded-full" src="{{ asset('storage/foto/' . $berita->foto)}}" alt="{{ $berita->judul }}">
                                     </div>
                                     <div class="ms-2.5 sm:ms-4">
-                                        <h4 class="font-semibold text-white">{{ $berita->konten }}</h4>
+                                        <h4 class="font-semibold text-white">{{ $berita->judul }}</h4>
                                         <p class="text-xs text-white/80">{{ $berita->created_at->format('M d, Y') }}</p>
                                     </div>
                                 </div>
@@ -33,7 +33,10 @@
                         <div class="absolute bottom-0 inset-x-0 z-10">
                             <div class="flex flex-col h-full p-4 sm:p-6">
                                 <h3 class="text-lg sm:text-3xl font-semibold text-white group-hover:text-white/80">{{ $berita->judul }}</h3>
-                                <p class="mt-2 text-white/80">{{ $berita->konten }}</p>
+                                <p class="mt-2 text-white/80">{{ \Illuminate\Support\Str::limit($berita->konten, 150, '...') }}</p>
+                                {{-- <a href="{{ route('berita.show', $berita->id) }}" class="text-blue-500 hover:text-blue-700">Baca Selengkapnya</a> --}}
+                                <p class="font-medium text-white">Baca Selengkapnya</p>
+
                             </div>
                         </div>
                     </a>
