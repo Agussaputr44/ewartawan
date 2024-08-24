@@ -57,19 +57,20 @@ class AuthController extends Controller
             // Authentication successful
             $user = Auth::user();
             if ($user->role == 'admin') {
-                return redirect()->intended('/admin-dashboard');
+                return redirect()->route('admin');
             } elseif ($user->role == 'wartawan') {
                 return redirect()->intended('/wartawan/berita');
             } elseif ($user->role == 'redaktur') {
-                return redirect()->intended('/redaktur-index');
+                return redirect()->intended('/redaktur');
             } else {
                 return redirect()->intended('/');
             }
         }
 
         // Authentication failed
-        return redirect()->back()->withErrors(['email' => 'Invalid credentials']);
-    }
+        return redirect()->back()->withErrors(['email' => 'Email dan Password tidak sesuai'])
+        ->withInput($request->only('email'));
+}
 
     public function logout(Request $request)
     {

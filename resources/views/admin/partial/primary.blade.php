@@ -1,3 +1,4 @@
+<!-- resources/views/admin/partial/layout.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
-    @include('layout.partial.link')
+    @include('admin.partial.link')
 </head>
 
 <body>
-    @include('layout.partial.navbar')
-    <div class="">
-
-        @yield('content')
+    <div class="flex">
+        @include('admin.partial.sidebar')
+        <div class="flex-1 p-6">
+            @yield('content')
+        </div>
     </div>
-    @include('layout.partial.footer')
+    @include('admin.partial.footer')
 </body>
-
 
 </html>

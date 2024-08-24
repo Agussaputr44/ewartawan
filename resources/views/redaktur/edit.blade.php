@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <a href="{{ route('berita.index') }}"
+        <a href="{{ route('redaktur.index') }}"
             class="py-2 my-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-gray-300 bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700">
             Kembali
         </a>
-        <form action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('redaktur.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <!-- Card -->
@@ -68,6 +68,18 @@
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}" @if($berita->kategori_id == $category->id) selected @endif class="text-black">{{ $category->nama_kategori }}</option>
                                 @endforeach
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="status"
+                                class="inline-block text-sm font-medium text-gray-800 mt-2.5 dark:text-neutral-200">
+                                Status
+                            </label>
+                            <select id="status" name="status"
+                                class="text-black py-2 px-3 pe-9 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                <option value="pending" @if($berita->status == 'pending') selected @endif class="text-black">Pending</option>
+                                <option value="published" @if($berita->status == 'published') selected @endif class="text-black">Published</option>
                             </select>
                         </div>
 

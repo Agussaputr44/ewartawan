@@ -11,8 +11,16 @@ export default {
 
   ],
   theme: {
-    extend: {},
-  },
+    extend: {
+      colors: {
+          'pastel-blue': '#a8d5e2',
+          'pastel-green': '#b4e1d0',
+          'pastel-pink': '#f3d1dc',
+          'pastel-yellow': '#f7e3af',
+          'pastel-purple': '#d4c1ec',
+      },
+  },  },
+  
   plugins: [
     typography,
     forms,

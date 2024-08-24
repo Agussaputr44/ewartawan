@@ -17,7 +17,7 @@
                     <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
                         Have an account yet?
                         <a class="text-[#0D9488] decoration-2 hover:underline font-medium dark:text-[#0D9488]"
-                            href="../examples/html/signup.html">Sign in here</a>
+                            href="{{route('get-signin')}}">Sign in here</a>
                     </p>
                 </div>
 

@@ -3,7 +3,7 @@
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
 
         <div class="max-w-2xl text-center mx-auto mb-10 lg:mb-14">
-            <h2 class="text-2xl font-bold md:text-4xl md:leading-tight">Berita Yang Anda Tuliskan</h2>
+            <h2 class="text-2xl font-bold md:text-4xl md:leading-tight">Berita Telah DiTuliskan Wartawan Anda</h2>
             <p class="mt-1 text-gray-600 dark:text-neutral-400">Tinjau kembali berita anda</p>
         </div>
         
@@ -11,7 +11,7 @@
             <!-- Grid -->
             <div class="grid lg:grid-cols-2 gap-6">
                 @foreach($beritas as $berita)
-                    <a class="group relative block rounded-xl" href="{{ route('berita.show', $berita->id) }}">
+                    <a class="group relative block rounded-xl" href="{{ route('redaktur.show', $berita->id) }}">
                         <div class="flex-shrink-0 relative rounded-xl overflow-hidden w-full h-[350px] before:absolute before:inset-x-0 before:z-[1] before:size-full before:bg-gradient-to-t before:from-gray-900/70">
                             <img class="size-full absolute top-0 start-0 object-cover" src="{{ asset('storage/foto/' . $berita->foto) }}" alt="{{ $berita->judul }}">
                         </div>
@@ -34,7 +34,7 @@
                             <div class="flex flex-col h-full p-4 sm:p-6">
                                 <h3 class="text-lg sm:text-3xl font-semibold text-white group-hover:text-white/80">{{ $berita->judul }}</h3>
                                 <p class="mt-2 text-white/80">{{ \Illuminate\Support\Str::limit($berita->konten, 150, '...') }}</p>
-                                {{-- <a href="{{ route('berita.show', $berita->id) }}" class="text-blue-500 hover:text-blue-700">Baca Selengkapnya</a> --}}
+                                {{-- <a href="{{ route('redaktur.show', $berita->id) }}" class="text-blue-500 hover:text-blue-700">Baca Selengkapnya</a> --}}
                                 <p class="font-medium text-white">Baca Selengkapnya</p>
 
                             </div>
@@ -48,7 +48,7 @@
             <div class="inline-block bg-white border shadow-sm rounded-full dark:bg-neutral-900 dark:border-neutral-800">
                 <div class="py-3 px-4 flex items-center gap-x-2">
                     <p class="text-gray-600 dark:text-neutral-400">Want to read more?</p>
-                    <a class="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline font-medium dark:text-blue-500" href="{{ route('berita.index') }}">
+                    <a class="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline font-medium dark:text-blue-500" href="{{ route('redaktur.index') }}">
                         Go here
                         <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="m9 18 6-6-6-6"/>

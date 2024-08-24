@@ -17,12 +17,12 @@
             <div class="border border-gray-200 p-4">
                 <p class="font-medium text-gray-900">Link Menu</p>
                 <ul class="mt-2 space-y-2 text-sm">
-                    <li><a href="#" class="text-gray-700 transition hover:opacity-75">Simulasi</a></li>
-                    <li><a href="#" class="text-gray-700 transition hover:opacity-75">Hukum & Syarat</a></li>
-                    <li><a href="#" class="text-gray-700 transition hover:opacity-75">Pengumuman</a></li>
-                    <li><a href="#" class="text-gray-700 transition hover:opacity-75">Data Media</a></li>
-                    <li><a href="#" class="text-gray-700 transition hover:opacity-75">Panduan</a></li>
-                    <li><a href="#" class="text-gray-700 transition hover:opacity-75">Testimoni</a></li>
+                    <li><a href="{{route('landing')}}" class="text-gray-700 transition hover:opacity-75">Simulasi</a></li>
+                    <li><a href="{{route('hukum')}}" class="text-gray-700 transition hover:opacity-75">Hukum & Syarat</a></li>
+                    <li><a href="{{route('pengumuman')}}" class="text-gray-700 transition hover:opacity-75">Pengumuman</a></li>
+                    <li><a href="{{route('media')}}" class="text-gray-700 transition hover:opacity-75">Data Media</a></li>
+                    <li><a href="{{route('panduan')}}" class="text-gray-700 transition hover:opacity-75">Panduan</a></li>
+                    <li><a href="{{route('feedback')}}" class="text-gray-700 transition hover:opacity-75">Testimoni</a></li>
                 </ul>
             </div>
 
